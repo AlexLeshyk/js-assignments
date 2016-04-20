@@ -320,7 +320,13 @@ function getSecondItems(arr) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(arr) {
-   throw new Error('Not implemented');
+    var result;
+    for ( var i=1; i< arr.length; i++) {
+        result = arr[i];
+        arr.splice(i,0,result);
+        i = i*2;
+    }
+    return arr;
 }
 
 
@@ -355,7 +361,13 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  */
 function getPositivesCount(arr) {
-   throw new Error('Not implemented');
+    var result = 0;
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i] > 0) {
+            result +=1;
+        }
+    }
+    return result;
 }
  
 /** 
@@ -372,7 +384,17 @@ function getPositivesCount(arr) {
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
 function sortDigitNamesByNumericOrder(arr) {
-   throw new Error('Not implemented');
+    function compare(a, b) {
+        if (a > b) {
+            return 1;
+        }
+        if (a < b) {
+            return -1;
+        }
+        return 0;
+    }
+    arr.sort(compare);
+    return arr;
 }
 
 /** 
@@ -388,7 +410,11 @@ function sortDigitNamesByNumericOrder(arr) {
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
 function getItemsSum(arr) {
-   throw new Error('Not implemented');
+   var result = 0;
+    for (var i = 0; i < arr.length; i++) {
+        result +=arr[i];
+    }
+    return result;
 }
  
 /** 
@@ -484,7 +510,6 @@ function sortCitiesArray(arr) {
         }
     }
   }
-
 
    arr.sort(compare);
    return arr;
